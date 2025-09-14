@@ -5,49 +5,59 @@ public class SanPham {
 	private int priceProduct;
 	private String descriptionProduct;
 	private int quantityProduct;
+	private String category;
 	
 	
-	public SanPham(String nameProduct, int priceProduct, String descriptionProduct, int quantityProduct) {
+	public SanPham(String nameProduct, int priceProduct, String descriptionProduct, int quantityProduct, String category) {
 		this.nameProduct = nameProduct;
 		this.priceProduct = priceProduct;
 		this.descriptionProduct = descriptionProduct;
 		this.quantityProduct = quantityProduct;
+		this.category = category;
 	}
 	
 	public String getNameProduct() {
 		return nameProduct;
 	}
-	
-	public int getPriceProduct() {
-		return priceProduct;
-	}
-	
-	public String getDescriptionProduct() {
-		return descriptionProduct;
-	}
-	
+
 	public void setNameProduct(String nameProduct) {
 		this.nameProduct = nameProduct;
 	}
-	
+
+	public int getPriceProduct() {
+		return priceProduct;
+	}
+
 	public void setPriceProduct(int priceProduct) {
 		this.priceProduct = priceProduct;
 	}
-	
+
+	public String getDescriptionProduct() {
+		return descriptionProduct;
+	}
+
 	public void setDescriptionProduct(String descriptionProduct) {
 		this.descriptionProduct = descriptionProduct;
 	}
-	
-	public int updateProduct(String nameProduct, int priceProduct, String descriptionProduct, int quantityProduct) {
-		this.nameProduct = nameProduct;
-		this.priceProduct = priceProduct;
-		this.descriptionProduct = descriptionProduct;
+
+
+	public int getQuantityProduct() {
+		return quantityProduct;
+	}
+
+	public void setQuantityProduct(int quantityProduct) {
 		this.quantityProduct = quantityProduct;
-		return 1;
 	}
-	
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	public String toString() {
-		return getNameProduct() + getPriceProduct() + getPriceProduct();
+		return getNameProduct() + " " + getDescriptionProduct() + " "  + getPriceProduct() + " "  + getQuantityProduct() + " "  + getCategory();
 	}
-	
 }
