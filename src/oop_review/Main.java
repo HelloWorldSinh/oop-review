@@ -16,12 +16,24 @@ public class Main {
 		SanPham lap3 = new SanPham("mac", 30000, "lap top mac gia re", 30, "Laptop");
 		
 		ArrayList<SanPham> ds = new ArrayList<SanPham>();
+		
+		Discount dc1 = new Discount(10, null, "ABC");
+		Discount dc2 = new Discount(20, null, "XYZ");
+		Discount dc3 = new Discount(50, null, "MNP");
+		
+		ArrayList<Discount> listDicount = new ArrayList<Discount>();
+		listDicount.add(dc1);
+		listDicount.add(dc2);
+		listDicount.add(dc3);
+		
 		ds.add(dt1);
 		ds.add(dt2);
 		ds.add(dt3);
 		ds.add(lap1);
 		ds.add(lap2);
 		ds.add(lap3);
+		
+		
 		
 		int control;
 		
@@ -111,10 +123,39 @@ public class Main {
 				 listMap.forEach((k, v) -> System.out.println(k + " : " + v));
 			}
 			if(control == 5) {
+				Discount t = new Discount();
+				System.out.println("Nhap % giam gia");
+				t.setDiscount(sc.nextInt()); sc.nextLine();
 				
+				System.out.println("Nhap mo ta:");
+				t.setDescription(sc.nextLine());
+				
+				System.out.println("Nhap ma code:");
+				t.setCode(sc.nextLine());
+				
+				listDicount.add(t);
+				System.out.println("them thanh cong");
 			}
 			if(control == 6) {
-				
+				int id = 1, sl, sum = 0;
+				String discount;
+				System.out.println("Chon san pham va so luong:");
+				while(id != 0) {
+					id = sc.nextInt();
+					sl = sc.nextInt();
+					if(id == 0)
+						break;
+					sum += ds.get(id - 1).getPriceProduct() * sl;
+				}
+				sc.nextLine();
+				System.out.println("Nhap ma giam gia:");
+				discount = sc.nextLine();
+				for(int i = 0; i < listDicount.size(); i++) {
+					if(listDicount.get(i).getCode().equals(discount)) {
+						sum -= sum * listDicount.get(i).getDiscount() / 100;
+					}
+				}
+				System.out.println("Tong gia tri don hang: " + sum);
 			}
 			if(control == 0) {
 				System.out.println("Ket thuc!");
